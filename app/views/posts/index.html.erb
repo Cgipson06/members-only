@@ -1,0 +1,22 @@
+<div class="float-right">
+  <p id="notice"><%= notice %></p>
+</div>
+<div class = "body" >
+<h1>Members Only Posts</h1>
+<% from_time = Time.now %>
+<% @posts.each do |post| %>
+  <% if logged_in? %>
+    <p>
+      Posted by:
+      <%= post.author %>
+      <%= distance_of_time_in_words(from_time, post.created_at) %>
+      ago
+    </p>
+  <% end %>
+  <h4 class="float-left"><%=post.title %></h4>  
+  <p class="clear"><%= post.body %></p>
+<% end %>
+</div>
+
+
+
